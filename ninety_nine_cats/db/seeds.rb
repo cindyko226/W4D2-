@@ -7,18 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # == Schema Information
 #
-# Table name: cats
+# == Schema Information
 #
-#  id          :bigint(8)        not null, primary key
-#  birth_date  :date             not null
-#  color       :string           not null
-#  name        :string           not null
-#  sex         :string(1)        not null
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-
-
+# Table name: cat_rental_requests
+#
+#  id         :bigint(8)        not null, primary key
+#  cat_id     :integer          not null
+#  start_date :date             not null
+#  end_date   :date             not null
+#  status     :string           default("PENDING")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 cat1 = Cat.create(birth_date: '2015/01/20', color: 'black', name: 'Leo', sex: 'M', description: 'Sweetest' )
 cat2 = Cat.create(birth_date: '2012/05/13', color: 'brown', name: 'Mocha', sex: 'F', description: 'Lovely' )
 
+cat_rental1 = CatRentalRequest.create(cat_id: 1, start_date: '2016/01/01', end_date: '2016/06/20', status: 'APPROVED')
+cat_rental2 = CatRentalRequest.create(cat_id: 2, start_date: '2013/01/01', end_date: '2013/06/20', status: 'APPROVED')
